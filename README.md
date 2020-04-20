@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Description
 
-A composable, dark themed UI Framework speceifically designed to work with TailwindCSS.
+A composable, dark themed UI Framework specifically designed to work with TailwindCSS.
 
 ## Available Scripts
 
