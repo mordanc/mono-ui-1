@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Description
+
+A composable, dark themed UI Framework speceifically designed to work with TailwindCSS.
+
 ## Available Scripts
 
 In the project directory, you can run:
