@@ -1,29 +1,40 @@
 import React from "react";
 import { MonoButton } from "./MonoButton";
 import { MonoWindow } from "./MonoWindow";
+import { MonoTopbar } from "./MonoTopbar";
 // @ts-ignore
 import { Scrollbars } from "react-custom-scrollbars";
+import { IMonoWindow } from "./types";
 
-export function MonoApp(props: any) {
-  const { leftSidebar, rightSidebar, contentPanes, mainContentColumns } = props;
-
+export function MonoApp({
+  leftSidebar,
+  rightSidebar,
+  topbar,
+  contentPanes,
+  mainContentColumns,
+  frames,
+}: {
+  leftSidebar?: JSX.Element;
+  rightSidebar?: JSX.Element;
+  topbar?: JSX.Element;
+  contentPanes: IMonoWindow[];
+  mainContentColumns?: number;
+  frames?: boolean;
+}) {
   const display = contentPanes.map((pane: any) => {
-    return <MonoWindow content={pane.content} width={pane.width} />;
+    return <MonoWindow window={pane} frames={frames} />;
   });
 
   return (
     <div className="h-screen bg-greydark w-screen flex text-white">
       {leftSidebar && leftSidebar}
       <div className="flex flex-col w-full">
-        <div
-          className={`h-16 flex items-center border border-red-500 justify-between px-4`}
-        >
-          <h1>Topbar</h1>
-          <MonoButton text="Test Button" disable={false} func={() => {}} />
-        </div>
+        {topbar }
 
         <div
-          className={`w-full h-full border border-blue-500 grid grid-cols-1 lg:grid-cols-${
+          className={`w-full h-full ${
+            frames && `border border-blue-500`
+          } grid grid-cols-1 lg:grid-cols-${
             mainContentColumns
               ? mainContentColumns
               : contentPanes.length >= 4
